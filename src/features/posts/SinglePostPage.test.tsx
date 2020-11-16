@@ -1,9 +1,9 @@
 import React from "react";
 import { MemoryRouter, Route, BrowserRouter } from "react-router-dom";
+import { fireEvent } from "@testing-library/react";
 import SinglePostPage from "./SinglePostPage";
 import renderWithStore from "../../test/renderWithStore";
 import renderWithStoreAndRouter from "../../test/renderWithStoreAndRouter";
-import { fireEvent } from "@testing-library/react";
 import { INITIAL_STATE } from "../../test/mock_data";
 
 beforeEach(() => {
@@ -35,7 +35,7 @@ test("load post when postId exist", () => {
   expect(getByText(/Second test Post/i)).toBeInTheDocument();
 });
 test("click edit of first post , go to /posts/edit/1", async () => {
-  const { getByText, findByText } = renderWithStoreAndRouter(
+  const { getByText } = renderWithStoreAndRouter(
     <Route path="/posts/:id">
       <SinglePostPage />
     </Route>,

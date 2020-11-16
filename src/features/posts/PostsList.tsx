@@ -5,6 +5,7 @@ import AddPostForm from "./AddPostForm";
 import { State } from "../../store";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
+
 const PostsList = () => {
   const { path } = useRouteMatch();
   const posts = useSelector((state: State) => state.posts);

@@ -1,6 +1,6 @@
 import React from "react";
-import TimeAgo from "./TimeAgo";
 import renderer from "react-test-renderer";
+import TimeAgo from "./TimeAgo";
 
 jest.mock("../../utils/getTimeAgo.ts", () =>
   jest.fn().mockReturnValue("28 minutes")

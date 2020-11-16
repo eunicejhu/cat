@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { createStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { INITIAL_STATE } from "./mock_data";
-import { rootReducer } from "./store.ts";
+import { rootReducer } from "./store";
 
 const renderWithStore = (
   ui,

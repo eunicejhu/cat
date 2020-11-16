@@ -1,11 +1,11 @@
-import EditPostForm from "./EditPostForm";
 import React from "react";
 import { Route } from "react-router-dom";
-import renderWithStoreAndRouter from "../../test/renderWithStoreAndRouter";
 import { fireEvent } from "@testing-library/react";
+import renderWithStoreAndRouter from "../../test/renderWithStoreAndRouter";
+import EditPostForm from "./EditPostForm";
 
 test("show no post found when post does not exist", () => {
-  const { getByText, getByDisplayValue } = renderWithStoreAndRouter(
+  const { getByText } = renderWithStoreAndRouter(
     <Route path="/editPost/:id">
       <EditPostForm />
     </Route>,

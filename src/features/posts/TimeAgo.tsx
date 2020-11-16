@@ -1,9 +1,10 @@
 import React from "react";
 import getTimeAgo from "../../utils/getTimeAgo";
 
-const TimeAgo: React.FC<{ date: string }> = ({ date }) => {
+type Props = { date: string };
+const TimeAgo: React.FC<Props> = ({ date }: Props) => {
   let timeAgo = getTimeAgo(date);
-  if (Boolean(timeAgo)) {
+  if (timeAgo) {
     timeAgo += " ago";
   }
   return (

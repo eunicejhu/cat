@@ -3,6 +3,14 @@ import { Switch, Route, NavLink, useRouteMatch } from "react-router-dom";
 
 import Cats from "../Cats/Cats";
 
+function Countries() {
+  return <div>This is Countries project</div>;
+}
+
+function NotFound() {
+  return <div>Projects not found</div>;
+}
+
 function Projects() {
   const { path, url } = useRouteMatch();
   return (
@@ -34,14 +42,6 @@ function Projects() {
       </Switch>
     </>
   );
-}
-
-function Countries() {
-  return <div>This is Countries project</div>;
-}
-
-function NotFound() {
-  return <div>Projects not found</div>;
 }
 
 export default Projects;

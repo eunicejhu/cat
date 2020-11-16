@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 // eslint-disable-next-line
-import { useRouteMatch, match, Link } from "react-router-dom";
+import { useRouteMatch, match as Match, Link } from "react-router-dom";
 import { State } from "../../store";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
@@ -11,7 +11,7 @@ interface MatchParams {
 }
 
 const SinglePostPage = () => {
-  const match: match<MatchParams> = useRouteMatch();
+  const match: Match<MatchParams> = useRouteMatch();
   const {
     params: { id: postId },
   } = match;

@@ -6,7 +6,21 @@ import Projects from "../Projects/Projects";
 import Login from "../Login/Login";
 
 import "./Main.scss";
-import ThemeContext from "../../context/ThemeContext";
+import ThemeContext, { Theme } from "../../context/ThemeContext";
+
+function Home() {
+  return <div>This is Home page</div>;
+}
+
+function AboutMe() {
+  return <div>This is about me page</div>;
+}
+function ContactMe() {
+  return <div>This is contact me page</div>;
+}
+function NotFound() {
+  return <div>Page not found</div>;
+}
 
 const ROUTES = [
   {
@@ -106,7 +120,9 @@ function Main() {
         <button
           className="theme"
           type="button"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={() =>
+            setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark)
+          }
         >
           {theme}
         </button>
@@ -117,20 +133,6 @@ function Main() {
       )
     </>
   );
-}
-
-function Home() {
-  return <div>This is Home page</div>;
-}
-
-function AboutMe() {
-  return <div>This is about me page</div>;
-}
-function ContactMe() {
-  return <div>This is contact me page</div>;
-}
-function NotFound() {
-  return <div>Page not found</div>;
 }
 
 export default Main;

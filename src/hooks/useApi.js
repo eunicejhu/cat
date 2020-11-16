@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import axios from "axios";
 
 export const API_STATUS = {
@@ -7,7 +7,7 @@ export const API_STATUS = {
   LOADING: "LOADING",
 };
 const useApi = (url, dispatch) => {
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       dispatch({ type: API_STATUS.LOADING });
       const result = await axios.get(url);
@@ -16,10 +16,10 @@ const useApi = (url, dispatch) => {
     } catch (error) {
       dispatch({ type: API_STATUS.ERROR, payload: { error } });
     }
-  };
+  }, [dispatch, url]);
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 };
 
 export default useApi;

@@ -2,10 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { fireEvent, screen } from "@testing-library/react";
 import StoreWrapper from "../../test/StoreWrapper";
-import PostsList from "./PostsList.tsx";
+import PostsList from "./PostsList";
 import { INITIAL_STATE } from "../../test/mock_data";
 import renderWithStoreAndRouter from "../../test/renderWithStoreAndRouter";
-import BrowserRouterWrapper from "../../test/BrowserRouterWrapper.tsx";
+import BrowserRouterWrapper from "../../test/BrowserRouterWrapper";
 
 test("show initial postsList", () => {
   const { container, getByText } = renderWithStoreAndRouter(<PostsList />, {
@@ -15,7 +15,7 @@ test("show initial postsList", () => {
   expect(container.querySelectorAll(".post-excerpt").length).toBe(2);
 });
 
-test("click Seemore direct to SinglePostPage", () => {
+test("click 'See more' direct to SinglePostPage", () => {
   const { getAllByText } = renderWithStoreAndRouter(<PostsList />, {
     initialState: INITIAL_STATE,
   });
@@ -25,7 +25,7 @@ test("click Seemore direct to SinglePostPage", () => {
 
 test("show no posts when posts is []", () => {
   const { getByText } = renderWithStoreAndRouter(<PostsList />, {
-    initialState: { posts: [] },
+    initialState: { posts: [], users: [] },
   });
   expect(getByText(/No Posts/i)).toBeInTheDocument();
 });

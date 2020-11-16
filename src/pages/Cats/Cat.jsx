@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useImmer } from "use-immer";
 
@@ -8,7 +8,7 @@ function Cat() {
   const [data, setData] = useImmer({ url: "", name: "", description: "" });
   const [isLoadingImage, setIsLoadingImage] = useState(false);
   const id = useQuery().get("id");
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const url = `https://api.thecatapi.com/v1/images/search?breed_id=${id}`;
     setIsLoadingImage(true);
     try {
@@ -25,16 +25,16 @@ function Cat() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [id, setData]);
 
   useEffect(() => {
     let isSubscribed = true;
     if (id) fetchData();
     return () => {
-      // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       isSubscribed = false;
     };
-  }, [id]);
+  }, [id, fetchData]);
 
   const { name, url, description } = data;
   return (
