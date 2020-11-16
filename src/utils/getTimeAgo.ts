@@ -1,6 +1,7 @@
 import { parseISO, formatDistanceToNow } from "date-fns";
+
 const getTimeAgo = (dateStr: string): string => {
-  if (Boolean(dateStr)) {
+  if (dateStr) {
     return formatDistanceToNow(parseISO(dateStr));
   }
   return "";

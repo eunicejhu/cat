@@ -2,10 +2,10 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import Routes from "./Routes.tsx";
+import Routes from "./Routes";
 import renderWithStoreAndRouter from "./test/renderWithStoreAndRouter";
-import renderWithBrowserRouter from "./test/renderWithBrowserRouter.tsx";
-import BrowserRouterWrapper from "./test/BrowserRouterWrapper.tsx";
+import renderWithBrowserRouter from "./test/renderWithBrowserRouter";
+import BrowserRouterWrapper from "./test/BrowserRouterWrapper";
 import StoreWrapper from "./test/StoreWrapper";
 
 // It provides 3 ways to wrap App with router for testing.

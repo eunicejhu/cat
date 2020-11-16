@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import NavBar from "./NavBar";
-import BrowserRouterWrapper from "./test/BrowserRouterWrapper.tsx";
+import BrowserRouterWrapper from "./test/BrowserRouterWrapper";
 
 test("click Home, location pathname set to /", () => {
   render(<NavBar />, { wrapper: BrowserRouterWrapper });

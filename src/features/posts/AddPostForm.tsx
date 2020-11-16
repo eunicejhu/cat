@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postAdded } from "./postsSlice";
 import { State } from "../../store";
+
 const AddPostForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -62,7 +63,7 @@ const AddPostForm: React.FC = () => {
             name="content"
             value={content}
             onChange={onContentChanged}
-          ></textarea>
+          />
         </div>
         <div className="field">
           <label htmlFor="users">Author</label>
@@ -73,7 +74,7 @@ const AddPostForm: React.FC = () => {
             id="users"
             onChange={onUserChanged}
           >
-            <option value=""></option>
+            <option value="" aria-label="users" />
             {renderUsersOptions}
           </select>
         </div>

@@ -1,8 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "../store/index.ts";
+import store from "../store/index";
 
-const withStore = (Component) => (props) => (
+type Props = {};
+const withStore = (Component: React.JSXElementConstructor<Props>) => (
+  props: Props
+) => (
   <Provider store={store}>
     <Component {...props} />
   </Provider>

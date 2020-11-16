@@ -59,7 +59,7 @@ const EditPostForm: React.FC = () => {
           rows={10}
           value={content}
           onChange={onContentChanged}
-        ></textarea>
+        />
       </div>
       <div>
         <input type="button" value="Submit" onClick={onSavePostClicked} />
