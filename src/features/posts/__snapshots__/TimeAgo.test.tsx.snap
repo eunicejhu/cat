@@ -5,9 +5,7 @@ exports[`render correctly 1`] = `
   className="date"
 >
    
-  <i>
-    28 minutes ago
-  </i>
+  <i />
    
 </span>
 `;
