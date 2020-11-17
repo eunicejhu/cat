@@ -1,7 +1,7 @@
 import React from "react";
-import ThemeContext, { Theme } from "../context/ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 
-export const theme = { theme: Theme.Dark, setTheme: jest.fn() };
+export const theme = { theme: "dark", setTheme: jest.fn() };
 type Props = {};
 const withTheme = (
   Component: React.JSXElementConstructor<Props>

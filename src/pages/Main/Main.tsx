@@ -6,7 +6,7 @@ import Projects from "../Projects/Projects";
 import Login from "../Login/Login";
 
 import "./Main.scss";
-import ThemeContext, { Theme } from "../../context/ThemeContext";
+import ThemeContext from "../../context/ThemeContext";
 
 function Home() {
   return <div>This is Home page</div>;
@@ -120,9 +120,7 @@ function Main() {
         <button
           className="theme"
           type="button"
-          onClick={() =>
-            setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark)
-          }
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           {theme}
         </button>
