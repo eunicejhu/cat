@@ -1,7 +1,7 @@
 import React from "react";
-import ThemeContext, { Theme } from "../context/ThemeContext";
+import ThemeContext, { THEME } from "../context/ThemeContext";
 
-export const theme = { theme: Theme.Dark, setTheme: jest.fn() };
+export const theme = { theme: THEME.DARK, setTheme: jest.fn() };
 
 type ThemeWrapperProps = { children: React.ReactNode };
 const ThemeWrapper: React.FC<ThemeWrapperProps> = ({
