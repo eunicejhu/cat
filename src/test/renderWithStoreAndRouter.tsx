@@ -18,7 +18,7 @@ const renderWithStoreAndRouter = (
     initialState = INITIAL_STATE,
     store = createStore(rootReducer, initialState),
     route = "/",
-  }: RenderOptions
+  }: RenderOptions = {}
 ) => {
   window.history.pushState({}, "Home", route);
   const wrapper = ({ children }: { children?: React.ReactNode }) => (
