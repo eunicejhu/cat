@@ -131,7 +131,6 @@ it("render correctly", () => {
                       data-testid="users"
                       id="users"
                       mode="pink"
-                      name="users"
                     >
                       <input
                         class="selectInput"
