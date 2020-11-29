@@ -44,6 +44,7 @@ it("render correctly", () => {
               <div
                 class="sc-gsTCUz hrxIhJ"
                 mode="pink"
+                name="theme"
               >
                 <input
                   class="selectInput"
@@ -58,7 +59,6 @@ it("render correctly", () => {
                   <li
                     class="selectInput-li"
                     data-id="dark"
-                    data-name="dark"
                     data-testid="dark"
                   >
                     dark
@@ -66,7 +66,6 @@ it("render correctly", () => {
                   <li
                     class="selectInput-li"
                     data-id="pink"
-                    data-name="pink"
                     data-testid="pink"
                   >
                     pink
@@ -74,7 +73,6 @@ it("render correctly", () => {
                   <li
                     class="selectInput-li"
                     data-id="light"
-                    data-name="light"
                     data-testid="light"
                   >
                     light

@@ -73,6 +73,7 @@ const App: React.FC<AppProps> = (props) => {
                         themes={themes}
                         mode={mode}
                         value={mode}
+                        name="theme"
                         data={modeData(["dark", "pink", "light"])}
                         placeholder="theme"
                         onChange={setMode}
