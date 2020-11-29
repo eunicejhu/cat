@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { addNewPost } from "./postsSlice";
 import { State, useAppDispatch } from "../../store";
@@ -6,6 +6,8 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import useTheme from "../../hooks/useTheme";
 import Button from "../../components/buttons/Button";
 import Select from "../../components/select/Select";
+import Input from "../../components/input/Input";
+import TextArea from "../../components/textarea/TextArea";
 import StyledForm from "../../components/form/StyledForm";
 
 const ERROR_MSG_FOR_USER = "Failed to add new post";
@@ -23,19 +25,28 @@ const AddPostForm: React.FC = () => {
 
     const users = useSelector((state: State) => state.users.data);
     const userName = useMemo(
-        () => users.find((user) => user.id === userId)?.name,
+        () => users.find((user) => user.id === userId)?.name || "",
         [users, userId]
     );
 
-    const onTitleChanged = (e: React.SyntheticEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value);
-    };
-    const onContentChanged = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
-        setContent(e.currentTarget.value);
-    };
-    const onUserChanged = (value: string) => {
-        setUserId(value);
-    };
+    const onTitleChanged = useCallback(
+        (e: React.SyntheticEvent<HTMLInputElement>) => {
+            setTitle(e.currentTarget.value);
+        },
+        [setTitle]
+    );
+    const onContentChanged = useCallback(
+        (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
+            setContent(e.currentTarget.value);
+        },
+        [setContent]
+    );
+    const onUserChanged = useCallback(
+        (value: string) => {
+            setUserId(value);
+        },
+        [setUserId]
+    );
 
     const canAdd =
         [title, content, userId].every(Boolean) && addRequestStatus === "idle";
@@ -70,7 +81,7 @@ const AddPostForm: React.FC = () => {
         <StyledForm>
             <div className="field">
                 <label htmlFor="title">Title</label>
-                <input
+                <Input
                     id="title"
                     data-testid="title"
                     name="title"
@@ -80,13 +91,13 @@ const AddPostForm: React.FC = () => {
             </div>
             <div className="field">
                 <label htmlFor="content">Content</label>
-                <textarea
+                <TextArea
                     id="content"
                     data-testid="content"
                     name="content"
                     value={content}
                     onChange={onContentChanged}
-                ></textarea>
+                ></TextArea>
             </div>
             <div className="field">
                 <label htmlFor="users">Author</label>
@@ -94,7 +105,6 @@ const AddPostForm: React.FC = () => {
                     <Select
                         data-testid="users"
                         value={userName}
-                        name="users"
                         id="users"
                         onChange={onUserChanged}
                         themes={themes}

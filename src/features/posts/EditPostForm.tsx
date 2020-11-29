@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectPostById } from "../../store/selectors";
 import { updatePost, Post } from "./postsSlice";
 import { State } from "../../store/index";
 import Button from "../../components/buttons/Button";
+import Input from "../../components/input/Input";
+import TextArea from "../../components/textarea/TextArea";
 import useTheme from "../../hooks/useTheme";
 import StyledForm from "../../components/form/StyledForm";
 
@@ -31,20 +33,31 @@ const EditPostForm: React.FC = () => {
         setContent(existingPost?.content || "");
     }, [existingPost?.title, existingPost?.content]);
 
-    const onTitleChanged = (e: React.FormEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value);
-    };
-    const onContentChanged = (e: React.FormEvent<HTMLTextAreaElement>) => {
-        setContent(e.currentTarget.value);
-    };
+    const onTitleChanged = useCallback(
+        (e: React.FormEvent<HTMLInputElement>) => {
+            setTitle(e.currentTarget.value);
+        },
+        [setTitle]
+    );
+    const onContentChanged = useCallback(
+        (e: React.FormEvent<HTMLTextAreaElement>) => {
+            setContent(e.currentTarget.value);
+        },
+        [setContent]
+    );
 
-    const onSavePostClicked = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        if (content && title) {
-            dispatch(updatePost({ ...existingPost, title, content } as Post));
-            history.push(`/posts/${id}`);
-        }
-    };
+    const onSavePostClicked = useCallback(
+        (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            if (content && title) {
+                dispatch(
+                    updatePost({ ...existingPost, title, content } as Post)
+                );
+                history.push(`/posts/${id}`);
+            }
+        },
+        [content, title, dispatch, existingPost, history, id]
+    );
 
     let renderContent;
 
@@ -56,7 +69,7 @@ const EditPostForm: React.FC = () => {
                 <h2>Edit Post</h2>
                 <div className="field">
                     <label htmlFor="title">Title</label>
-                    <input
+                    <Input
                         id="title"
                         data-testid="title"
                         name="title"
@@ -67,7 +80,7 @@ const EditPostForm: React.FC = () => {
                 </div>
                 <div className="field">
                     <label htmlFor="content">Content</label>
-                    <textarea
+                    <TextArea
                         name="content"
                         id="content"
                         data-testid="content"
@@ -75,7 +88,7 @@ const EditPostForm: React.FC = () => {
                         rows={10}
                         value={content}
                         onChange={onContentChanged}
-                    ></textarea>
+                    ></TextArea>
                 </div>
                 <div className="field">
                     <Button
