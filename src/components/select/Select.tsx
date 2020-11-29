@@ -9,6 +9,7 @@ export interface SelectProps {
     width?: string;
     [p: string]: any;
 }
+
 const StyledSelect = styled.div<SelectProps>`
     ${({ themes, mode, ...restProps }) => {
         return `
@@ -109,7 +110,6 @@ const Select: React.FC<SelectProps> = ({
             <li
                 data-testid={item.id}
                 data-id={item.id}
-                data-name={item.name}
                 className="selectInput-li"
                 key={item.id}
                 onClick={onLiClicked}
@@ -119,15 +119,15 @@ const Select: React.FC<SelectProps> = ({
         );
     });
     return (
-        /** Here we use uncontrolled component, because it's onClick of li
-            charging the change of the value, instead of onChange of input. */
+        /** controlled input, but we disable input's onchange by assigning a () => {} */
         <StyledSelect {...props}>
             <input
                 data-testid="selectInput"
                 className="selectInput"
                 onFocus={onSelectFocused}
                 type="text"
-                defaultValue={value}
+                value={value}
+                onChange={() => {}}
                 placeholder={placeholder}
             ></input>
             <ul className={focus ? "open" : "close"}>{datalist}</ul>
@@ -135,4 +135,4 @@ const Select: React.FC<SelectProps> = ({
     );
 };
 
-export default Select;
+export default React.memo(Select);
