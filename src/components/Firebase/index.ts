@@ -1,4 +1,5 @@
 import app from "firebase/app";
+import "firebase/auth";
 import FirebaseContext from "./context";
 
 //TODO: .env.production, .env.development
@@ -14,9 +15,24 @@ const config = {
 };
 
 class Firebase {
+    auth: app.auth.Auth;
     constructor() {
         app.initializeApp(config);
+        this.auth = app.auth();
     }
+
+    /**
+     * Auth API
+     */
+    doCreateUserWithEmailAndPassword = (email: string, password: string) =>
+        this.auth.createUserWithEmailAndPassword(email, password);
+    doSignInWithEmailAndPassword = (email: string, password: string) =>
+        this.auth.signInWithEmailAndPassword(email, password);
+    doSignOut = () => this.auth.signOut();
+    doPasswordReset = (email: string) =>
+        this.auth.sendPasswordResetEmail(email);
+    doPasswordUpdate = (newPassword: string) =>
+        this.auth.currentUser?.updatePassword(newPassword);
 }
 
 export default Firebase;
