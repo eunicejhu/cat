@@ -78,24 +78,28 @@ const SignUpForm = () => {
         <form>
             <Input
                 type="text"
+                data-testid="username"
                 name="username"
                 value={username}
                 onChange={onInputChanged}
             ></Input>
             <Input
                 type="email"
+                data-testid="email"
                 name="email"
                 value={email}
                 onChange={onInputChanged}
             ></Input>
             <Input
                 type="password"
+                data-testid="passwordOne"
                 name="passwordOne"
                 value={passwordOne}
                 onChange={onInputChanged}
             ></Input>
             <Input
                 type="password"
+                data-testid="passwordTwo"
                 name="passwordTwo"
                 value={passwordTwo}
                 onChange={onInputChanged}
@@ -103,8 +107,9 @@ const SignUpForm = () => {
             <p>{Boolean(error) ? error : ""}</p>
             <button
                 type="submit"
-                disabled={canSubmit}
-                onSubmit={onSubmit}
+                data-testid="submit"
+                disabled={!canSubmit}
+                onClick={onSubmit}
             ></button>
         </form>
     );
