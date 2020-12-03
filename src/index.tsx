@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 import ThemeContext, { themes, Mode } from "./context/ThemeContext";
+import Firebase, { FirebaseContext } from "./components/Firebase";
 
 import store from "./store/index";
 
@@ -20,15 +21,23 @@ if (process.env.NODE_ENV === "development") {
 const Entry = () => {
     const [mode, setMode] = useState<Mode>("pink");
     return (
-        <Provider store={store}>
-            <ThemeContext.Provider value={{ mode, setMode: setMode, themes }}>
-                <CookiesProvider>
-                    <BrowserRouter>
-                        <App mode={mode} themes={themes} setMode={setMode} />
-                    </BrowserRouter>
-                </CookiesProvider>
-            </ThemeContext.Provider>
-        </Provider>
+        <FirebaseContext.Provider value={new Firebase()}>
+            <Provider store={store}>
+                <ThemeContext.Provider
+                    value={{ mode, setMode: setMode, themes }}
+                >
+                    <CookiesProvider>
+                        <BrowserRouter>
+                            <App
+                                mode={mode}
+                                themes={themes}
+                                setMode={setMode}
+                            />
+                        </BrowserRouter>
+                    </CookiesProvider>
+                </ThemeContext.Provider>
+            </Provider>
+        </FirebaseContext.Provider>
     );
 };
 
