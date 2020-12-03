@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import FirebaseContext from "./context";
+import useFirebase from "./useFirebase";
 
 //TODO: .env.production, .env.development
 const config = {
@@ -36,4 +37,4 @@ class Firebase {
 }
 
 export default Firebase;
-export { FirebaseContext };
+export { FirebaseContext, useFirebase };
