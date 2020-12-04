@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -20,8 +20,9 @@ if (process.env.NODE_ENV === "development") {
 
 const Entry = () => {
     const [mode, setMode] = useState<Mode>("pink");
+    const fireBase = useMemo(() => new Firebase(), []);
     return (
-        <FirebaseContext.Provider value={new Firebase()}>
+        <FirebaseContext.Provider value={fireBase}>
             <Provider store={store}>
                 <ThemeContext.Provider
                     value={{ mode, setMode: setMode, themes }}
