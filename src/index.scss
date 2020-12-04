@@ -3,6 +3,8 @@ html {
     --gutter: 8px;
     --font-size: 8px;
     --spacing: 16px;
+    --margin: 10px;
+    --borderRadius: 4px;
 
     font-family: "Montserrat", sans-serif;
     color: var(--color-text-primary);
@@ -19,6 +21,7 @@ html {
         --gutter: 16px;
         --font-size: 16px;
         --spacing: 32px;
+        --margin: 10px;
     }
 }
 body {

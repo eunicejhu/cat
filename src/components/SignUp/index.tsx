@@ -1,8 +1,32 @@
 import React, { useReducer } from "react";
 import { Link, useHistory } from "react-router-dom";
+import styled from "styled-components";
 import Firebase, { useFirebase } from "../Firebase/index";
 import Input from "../input/Input";
 import * as ROUTES from "../../constants/routes";
+
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    * {
+        margin: var(--margin) 0;
+        border-radius: var(--borderRadius);
+    }
+`;
+
+const StyledSignUpPage = styled.div`
+    text-align: center;
+    width: 30%;
+    min-width: 300px;
+    margin: auto;
+`;
+
+const StyledSubmitButton = styled.button`
+    width: 50%;
+    min-width: 150px;
+    margin: auto;
+    padding: 10px;
+`;
 
 const initialState = {
     username: "",
@@ -75,13 +99,14 @@ const SignUpForm = () => {
         }
     };
     return (
-        <form>
+        <StyledForm>
             <Input
                 type="text"
                 data-testid="username"
                 name="username"
                 value={username}
                 onChange={onInputChanged}
+                placeholder="username"
             ></Input>
             <Input
                 type="email"
@@ -89,6 +114,7 @@ const SignUpForm = () => {
                 name="email"
                 value={email}
                 onChange={onInputChanged}
+                placeholder="email"
             ></Input>
             <Input
                 type="password"
@@ -96,6 +122,7 @@ const SignUpForm = () => {
                 name="passwordOne"
                 value={passwordOne}
                 onChange={onInputChanged}
+                placeholder="password"
             ></Input>
             <Input
                 type="password"
@@ -103,23 +130,26 @@ const SignUpForm = () => {
                 name="passwordTwo"
                 value={passwordTwo}
                 onChange={onInputChanged}
+                placeholder="comfirm password"
             ></Input>
             <p>{Boolean(error) ? error : ""}</p>
-            <button
+            <StyledSubmitButton
                 type="submit"
                 data-testid="submit"
                 disabled={!canSubmit}
                 onClick={onSubmit}
-            ></button>
-        </form>
+            >
+                Sign Up
+            </StyledSubmitButton>
+        </StyledForm>
     );
 };
 
 const SignUpPage = () => (
-    <div>
+    <StyledSignUpPage>
         <h1>SignUp</h1>
         <SignUpForm />
-    </div>
+    </StyledSignUpPage>
 );
 
 const SignUpLink = () => (
