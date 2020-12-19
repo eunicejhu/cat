@@ -5,7 +5,7 @@ import Firebase, { useFirebase } from "../Firebase/index";
 import Input from "../input/Input";
 import * as ROUTES from "../../constants/routes";
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
     display: flex;
     flex-direction: column;
     * {
@@ -14,14 +14,14 @@ const StyledForm = styled.form`
     }
 `;
 
-const StyledSignUpPage = styled.div`
+export const StyledPage = styled.div`
     text-align: center;
     width: 30%;
     min-width: 300px;
     margin: auto;
 `;
 
-const StyledSubmitButton = styled.button`
+export const StyledSubmitButton = styled.button`
     width: 50%;
     min-width: 150px;
     margin: auto;
@@ -146,10 +146,10 @@ const SignUpForm = () => {
 };
 
 const SignUpPage = () => (
-    <StyledSignUpPage>
+    <StyledPage>
         <h1>SignUp</h1>
         <SignUpForm />
-    </StyledSignUpPage>
+    </StyledPage>
 );
 
 const SignUpLink = () => (

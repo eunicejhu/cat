@@ -7,6 +7,7 @@ import NotificationsList from "./features/notifications/NotificationsList";
 
 import * as ROUTES from "./constants/routes";
 import SignUpPage from "./components/SignUp";
+import SignInPage from "./components/SignIn";
 
 const NoMatch = () => <>No match</>;
 const Routes = () => (
@@ -16,6 +17,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/posts/:id">
             <SinglePostPage />
+        </Route>
+        <Route exact path={ROUTES.SIGN_IN}>
+            <SignInPage />
         </Route>
         <Route exact path={ROUTES.SIGN_UP}>
             <SignUpPage />
