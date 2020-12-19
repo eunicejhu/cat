@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SignOutButton from "./components/SignOut";
 
 import {
     LANDING,
@@ -30,6 +31,7 @@ const NavBar = () => (
         <li>
             <Link to={NOTIFICATIONS}>Notifications</Link>
         </li>
+        <SignOutButton />
     </nav>
 );
 
