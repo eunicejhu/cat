@@ -5,17 +5,73 @@ exports[`renders correctly 1`] = `
   <nav>
     <li>
       <a
+        class="sc-gsTCUz flwUht"
         href="/"
+        mode="pink"
+        themes="[object Object]"
+      >
+        Landing
+      </a>
+    </li>
+    <li>
+      <a
+        class="sc-gsTCUz flwUht"
+        href="/signin"
+        mode="pink"
+        themes="[object Object]"
+      >
+        Sign In
+      </a>
+    </li>
+    <li>
+      <a
+        class="sc-gsTCUz flwUht"
+        href="/home"
+        mode="pink"
+        themes="[object Object]"
       >
         Home
       </a>
     </li>
     <li>
       <a
+        class="sc-gsTCUz flwUht"
+        href="/account"
+        mode="pink"
+        themes="[object Object]"
+      >
+        Account
+      </a>
+    </li>
+    <li>
+      <a
+        class="sc-gsTCUz flwUht"
+        href="/admin"
+        mode="pink"
+        themes="[object Object]"
+      >
+        Admin
+      </a>
+    </li>
+    <li>
+      <a
+        class="sc-gsTCUz flwUht"
         href="/notifications"
+        mode="pink"
+        themes="[object Object]"
       >
         Notifications
       </a>
+    </li>
+    <li>
+      <button
+        class="sc-bdfBwQ bftKdb"
+        data-testid="signout"
+        mode="pink"
+        type="button"
+      >
+        Sign Out
+      </button>
     </li>
   </nav>
 </DocumentFragment>
