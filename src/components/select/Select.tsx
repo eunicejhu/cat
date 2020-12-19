@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
-import { Themes, Mode } from "../../context/ThemeContext";
+import { Themes, Mode } from "../Theme";
 export interface SelectProps {
     themes: Themes;
     mode: Mode;

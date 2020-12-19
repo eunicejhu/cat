@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./store/index";
 
-import { themes } from "./context/ThemeContext";
+import { themes } from "./components/Theme";
 
 it("render correctly", () => {
     const ui = (

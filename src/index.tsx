@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
-import ThemeContext, { themes, Mode } from "./context/ThemeContext";
+import { ThemeContext, themes, Mode } from "./components/Theme";
 import Firebase, { FirebaseContext } from "./components/Firebase";
 
 import store from "./store/index";

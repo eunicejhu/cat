@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import Routes from "./Routes";
 import styled from "styled-components";
-import { Mode, Themes, SetMode } from "./context/ThemeContext";
+import { Mode, Themes, SetMode } from "./components/Theme";
 import Select from "./components/select/Select";
 
 import { useDispatch } from "react-redux";

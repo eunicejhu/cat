@@ -6,7 +6,6 @@ import Projects from "../Projects/Projects";
 import Login from "../Login/Login";
 
 import "./Main.scss";
-import ThemeContext from "../../context/ThemeContext";
 
 const ROUTES = [
     {

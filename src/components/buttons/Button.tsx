@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Themes, Mode } from "../../context/ThemeContext";
+import { Themes, Mode } from "../Theme";
 
 const StyledButton = styled.button<ButtonProps>`
     ${({ themes, mode }: ButtonProps) => {

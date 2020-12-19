@@ -2,8 +2,8 @@ import React from "react";
 import Firebase, { useFirebase } from "../Firebase";
 import { useHistory } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
-import useTheme from "../../hooks/useTheme";
-import { Themes, Mode } from "../../context/ThemeContext";
+import { useTheme } from "../Theme";
+import { Themes, Mode } from "../Theme";
 
 import styled from "styled-components";
 

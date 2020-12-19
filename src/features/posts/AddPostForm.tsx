@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { addNewPost } from "./postsSlice";
 import { State, useAppDispatch } from "../../store";
 import { unwrapResult } from "@reduxjs/toolkit";
-import useTheme from "../../hooks/useTheme";
+import { useTheme } from "../../components/Theme";
 import Button from "../../components/buttons/Button";
 import Select from "../../components/select/Select";
 import Input from "../../components/input/Input";
