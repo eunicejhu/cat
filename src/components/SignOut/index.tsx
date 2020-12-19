@@ -16,12 +16,14 @@ const StyledButton = styled.button<StyledButtonProps>`
         return ` --btn-text-hover:  ${themes[mode].btnTextHover};
             --btn-bg-hover: ${themes[mode].btnBackgroundHover};
             --color-bg: ${themes[mode].background} ;
-            --color-text:${themes[mode].text};`;
+            --color-text:${themes[mode].text};
+            --spacing:${themes[mode].spacing};`;
     }}
     text-decoration: none;
     color: var(--color-text);
-    background-color: transparent;
+    background-color: var(--color-bg);
     border: none;
+    padding: var(--spacing);
 
     &:hover {
         color: var(--btn-text-hover);

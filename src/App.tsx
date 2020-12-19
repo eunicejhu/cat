@@ -33,14 +33,10 @@ const StyledApp = styled.div<AppProps>`
 
             nav {
                 display: flex;
+                align-items: center;
                 li {
                     margin: 0 ${themes[mode].spacing};
                     list-style: none;
-                    &:hover {
-                        cursor: pointer;
-                        color: ${themes[mode].background};
-                        background-color: ${themes[mode].text};
-                    }
                 }
             }
 
