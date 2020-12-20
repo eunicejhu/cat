@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Routes from "./Routes";
 import styled from "styled-components";
 import { Mode, Themes, SetMode } from "./components/Theme";
 import Select from "./components/select/Select";
+import app from "firebase/app";
 
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./features/users/usersSlice";
+import Firebase, { useFirebase } from "./components/Firebase";
 
 export interface AppProps {
     themes: Themes;
@@ -53,17 +55,34 @@ const StyledApp = styled.div<AppProps>`
 const modeData = (data: string[]) =>
     data.map((mode: string) => ({ id: mode, name: mode }));
 
+export const useAuthUser = () => {
+    const [authUser, setAuthUser] = useState<app.User | null>(null);
+    const firebase = useFirebase() as Firebase;
+    useEffect(() => {
+        const listener = firebase.auth.onAuthStateChanged((authUser) =>
+            setAuthUser(authUser)
+        );
+        return () => {
+            listener();
+        };
+    }, [firebase]);
+
+    return authUser;
+};
+
 const App: React.FC<AppProps> = (props) => {
+    const authUser = useAuthUser();
     const dispatch = useDispatch();
 
     const { themes, mode, setMode } = props;
     useEffect(() => {
         dispatch(fetchUsers());
     }, [dispatch]);
+
     return (
         <StyledApp {...props} themes={themes} mode={mode}>
             <header>
-                <NavBar />
+                <NavBar authUser={authUser} />
                 <div className="selectWrapper">
                     <Select
                         themes={themes}

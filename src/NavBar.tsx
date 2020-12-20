@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SignOutButton from "./components/SignOut";
+import app from "firebase/app";
 
 import { useTheme, Themes, Mode } from "./components/Theme";
 
@@ -53,20 +54,30 @@ const LinkWithTheme = ({ to, text }: { to: string; text: string }) => {
     );
 };
 
-const NavBar = () => {
-    return (
-        <nav>
-            <LinkWithTheme to={LANDING} text="Landing" />
-            <LinkWithTheme to={SIGN_IN} text="Sign In" />
-            <LinkWithTheme to={HOME} text="Home" />
-            <LinkWithTheme to={ACCOUNT} text="Account" />
-            <LinkWithTheme to={ADMIN} text="Admin" />
-            <LinkWithTheme to={NOTIFICATIONS} text="Notifications" />
-            <li>
-                <SignOutButton />
-            </li>
-        </nav>
-    );
+const NavAuth = (
+    <nav>
+        <LinkWithTheme to={LANDING} text="Landing" />
+        <LinkWithTheme to={HOME} text="Home" />
+        <LinkWithTheme to={ACCOUNT} text="Account" />
+        <LinkWithTheme to={ADMIN} text="Admin" />
+        <LinkWithTheme to={NOTIFICATIONS} text="Notifications" />
+        <li>
+            <SignOutButton />
+        </li>
+    </nav>
+);
+const NavNonAuth = (
+    <nav>
+        <LinkWithTheme to={LANDING} text="Landing" />
+        <LinkWithTheme to={SIGN_IN} text="Sign In" />
+    </nav>
+);
+
+interface NavBarProps {
+    authUser: app.User | null;
+}
+const NavBar: React.FC<NavBarProps> = ({ authUser }) => {
+    return authUser ? NavAuth : NavNonAuth;
 };
 
 export default NavBar;
