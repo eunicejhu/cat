@@ -20,6 +20,7 @@ class Firebase {
     constructor() {
         app.initializeApp(config);
         this.auth = app.auth();
+        this.auth.useEmulator("http://localhost:9099/");
     }
 
     /**
