@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`NavBarAuth renders correctly 1`] = `
 <DocumentFragment>
   <nav>
     <li>
@@ -11,16 +11,6 @@ exports[`renders correctly 1`] = `
         themes="[object Object]"
       >
         Landing
-      </a>
-    </li>
-    <li>
-      <a
-        class="sc-gsTCUz flwUht"
-        href="/signin"
-        mode="pink"
-        themes="[object Object]"
-      >
-        Sign In
       </a>
     </li>
     <li>
