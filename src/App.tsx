@@ -59,20 +59,16 @@ export const useAuthUser = () => {
     const [authUser, setAuthUser] = useState<app.User | null>(null);
     const firebase = useFirebase() as Firebase;
     useEffect(() => {
-        const listener = firebase.auth.onAuthStateChanged((authUser) =>
-            setAuthUser(authUser)
-        );
-        return () => {
-            listener();
-        };
+        // unsubscribe is reported to be "not a function" weird!
+        firebase.auth.onAuthStateChanged((authUser) => setAuthUser(authUser));
     }, [firebase]);
 
     return authUser;
 };
 
 const App: React.FC<AppProps> = (props) => {
-    const authUser = useAuthUser();
     const dispatch = useDispatch();
+    const authUser = useAuthUser();
 
     const { themes, mode, setMode } = props;
     useEffect(() => {
