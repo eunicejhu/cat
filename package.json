@@ -102,7 +102,7 @@
             "**/api/*.{js,jsx,tsx,ts}",
             "**/features/**/*.{js,jsx,tsx,ts}",
             "**/components/**/*.{js,jsx,tsx,ts}",
-            "**/{NavBar,Routes}.*{js,jsx,tsx,ts}",
+            "**/{NavBar,Routes,App}.*{js,jsx,tsx,ts}",
             "!**/node_modules/**",
             "!**/stories/**",
             "!**/*.stories.jsx"
