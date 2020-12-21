@@ -21,6 +21,7 @@ if (process.env.NODE_ENV === "development") {
 const Entry = () => {
     const [mode, setMode] = useState<Mode>("pink");
     const fireBase = useMemo(() => new Firebase(), []);
+
     return (
         <FirebaseContext.Provider value={fireBase}>
             <Provider store={store}>
@@ -29,11 +30,7 @@ const Entry = () => {
                 >
                     <CookiesProvider>
                         <BrowserRouter>
-                            <App
-                                mode={mode}
-                                themes={themes}
-                                setMode={setMode}
-                            />
+                            <App />
                         </BrowserRouter>
                     </CookiesProvider>
                 </ThemeContext.Provider>

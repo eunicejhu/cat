@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SignOutButton from "./components/SignOut";
-import app from "firebase/app";
+import { AuthUserContext } from "./components/Session";
 
 import { useTheme, Themes, Mode } from "./components/Theme";
 
@@ -73,11 +73,12 @@ const NavNonAuth = (
     </nav>
 );
 
-interface NavBarProps {
-    authUser: app.User | null;
-}
-const NavBar: React.FC<NavBarProps> = ({ authUser }) => {
-    return authUser ? NavAuth : NavNonAuth;
+const NavBar = () => {
+    return (
+        <AuthUserContext.Consumer>
+            {(authUser) => (authUser ? NavAuth : NavNonAuth)}
+        </AuthUserContext.Consumer>
+    );
 };
 
 export default NavBar;
