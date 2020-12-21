@@ -4,6 +4,7 @@ import Firebase, { useFirebase } from "../Firebase";
 import { useHistory } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import { StyledForm, StyledPage, StyledSubmitButton } from "../SignUp";
+import { PasswordForgetLink } from "../PasswordForget";
 const SignInForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -63,6 +64,7 @@ const SignInForm = () => {
             >
                 Sign in
             </StyledSubmitButton>
+            <PasswordForgetLink />
         </StyledForm>
     );
 };

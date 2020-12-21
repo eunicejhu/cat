@@ -8,6 +8,7 @@ import NotificationsList from "./features/notifications/NotificationsList";
 import * as ROUTES from "./constants/routes";
 import SignUpPage from "./components/SignUp";
 import SignInPage from "./components/SignIn";
+import PasswordForgetPage from "./components/PasswordForget";
 
 const NoMatch = () => <>No match</>;
 const Routes = () => (
@@ -29,6 +30,9 @@ const Routes = () => (
         </Route>
         <Route exact path="/notifications/">
             <NotificationsList />
+        </Route>
+        <Route exact path={ROUTES.PASSWORD_FORGET}>
+            <PasswordForgetPage />
         </Route>
         <Route>
             <NoMatch />
