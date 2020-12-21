@@ -45,7 +45,7 @@ it("submit failure", async () => {
     expect(await findByText(/Oops/g)).toBeInTheDocument();
 });
 
-it.only("PasswordForget Link", () => {
+it("PasswordForget Link", () => {
     const ui = (
         <BrowserRouter>
             <PasswordForgetLink />
