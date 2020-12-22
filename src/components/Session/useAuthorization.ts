@@ -13,6 +13,8 @@ const useAuthorization = (condition = CONDITION) => {
             history.push(ROUTES.SIGN_IN);
         }
     }, [authUser, condition, history]);
+
+    return authUser;
 };
 
 export default useAuthorization;
