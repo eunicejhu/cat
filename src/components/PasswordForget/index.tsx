@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
 import Firebase, { useFirebase } from "../Firebase";
 import Input from "../input/Input";
-import { StyledForm, StyledPage, StyledSubmitButton } from "../SignUp";
+import { StyledForm, StyledPage, StyledSubmitButton } from "../Page";
 const PasswordForgetForm = () => {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");

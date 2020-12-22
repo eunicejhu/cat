@@ -3,7 +3,7 @@ import Input from "../input/Input";
 import Firebase, { useFirebase } from "../Firebase";
 import { useHistory } from "react-router-dom";
 import * as ROUTES from "../../constants/routes";
-import { StyledForm, StyledPage, StyledSubmitButton } from "../SignUp";
+import { StyledForm, StyledPage, StyledSubmitButton } from "../Page";
 import { PasswordForgetLink } from "../PasswordForget";
 const SignInForm = () => {
     const [email, setEmail] = useState("");
