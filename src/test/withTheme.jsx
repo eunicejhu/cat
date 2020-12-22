@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeContext, { themes } from "../context/ThemeContext";
+import { ThemeContext, themes } from "../components/Theme";
 
 export const theme = { themes: themes, mode: "pink", setTheme: jest.fn() };
 

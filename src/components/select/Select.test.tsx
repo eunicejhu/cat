@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Select from "./Select";
-import { themes } from "../../context/ThemeContext";
+import { themes } from "../Theme";
 import { fireEvent } from "@testing-library/react";
 
 export const data = [

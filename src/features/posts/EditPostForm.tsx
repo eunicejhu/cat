@@ -7,7 +7,7 @@ import { State } from "../../store/index";
 import Button from "../../components/buttons/Button";
 import Input from "../../components/input/Input";
 import TextArea from "../../components/textarea/TextArea";
-import useTheme from "../../hooks/useTheme";
+import { useTheme } from "../../components/Theme";
 import StyledForm from "../../components/form/StyledForm";
 
 interface Params {

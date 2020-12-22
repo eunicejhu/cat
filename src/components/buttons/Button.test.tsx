@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-import { themes } from "../../context/ThemeContext";
+import { themes } from "../Theme";
 
 import { render } from "@testing-library/react";
 import "jest-styled-components";

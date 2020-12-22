@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpPage test render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gsTCUz iRNCZj"
+  >
+    <h1>
+      SignUp
+    </h1>
+    <form
+      class="sc-bdfBwQ iXdyiL"
+    >
+      <input
+        data-testid="username"
+        name="username"
+        placeholder="username"
+        type="text"
+        value=""
+      />
+      <input
+        data-testid="email"
+        name="email"
+        placeholder="email"
+        type="email"
+        value=""
+      />
+      <input
+        data-testid="passwordOne"
+        name="passwordOne"
+        placeholder="password"
+        type="password"
+        value=""
+      />
+      <input
+        data-testid="passwordTwo"
+        name="passwordTwo"
+        placeholder="comfirm password"
+        type="password"
+        value=""
+      />
+      <p />
+      <button
+        class="sc-dlfnbm YJdWz"
+        data-testid="submit"
+        disabled=""
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
