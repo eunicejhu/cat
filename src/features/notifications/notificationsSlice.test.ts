@@ -5,11 +5,12 @@ import { NOTIFICATIONS } from "../../test/mock_data";
 jest.mock("../../api/client.ts");
 
 describe("notifications fetchAll test", () => {
-  test("succeeded", async () => {
-    Client.fetchAllNotifications = jest
-      .fn()
-      .mockResolvedValue({ data: NOTIFICATIONS });
-    await store.dispatch(fetchAll());
-    expect(store.getState().notifications).toEqual(NOTIFICATIONS);
-  });
+    test("succeeded", async () => {
+        Client.fetchAllNotifications = jest
+            .fn()
+            .mockResolvedValue({ data: { items: NOTIFICATIONS, nextPage: 1 } });
+        await store.dispatch(fetchAll());
+        expect(store.getState().notifications.items).toEqual(NOTIFICATIONS);
+        expect(store.getState().notifications.nextPage).toEqual(1);
+    });
 });
